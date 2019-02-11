@@ -36,7 +36,12 @@ public class SampleController {
 		return "sampleList";
 	}
 	// 4. 삭제 액션
-
+	@GetMapping("/sampleDelete")
+	public String smapleDelete(@RequestParam(value="sampleId") int sampleId) {
+		int result = sampleService.removeSample(sampleId);
+		System.out.println("삭제처리결과: " + result + " (성공:1, 실패:0)");
+		return "redirect:/sampleList";
+	}
 	// 5. 수정 폼
 
 	// 6. 수정 액션
