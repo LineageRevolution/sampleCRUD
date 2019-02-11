@@ -18,8 +18,9 @@ public class SampleService {
 		return sampleList;
 	}
 
-	public List<Sample> getSampleOne() {
-		return null;
+	public Sample getSampleOne(int sampleId){
+		Sample sample = sampleMapper.selectSampleOne(sampleId);
+		return sample;
 	}
 
 	public int addSample(String sampleName) {
@@ -32,7 +33,8 @@ public class SampleService {
 		return result;	
 	}
 
-	public int modifySample(Sample sample) {
-		return 0;
+	public int modifySample(int sampleId, String sampleName) {
+		int result = sampleMapper.updateSample(sampleId, sampleName);
+		return result;
 	}
 }

@@ -13,4 +13,8 @@ public interface SampleMapper {
 	List<Sample> selectSampleList();
 	
 	int deleteSample(int sampleId);
+	
+	Sample selectSampleOne(int sampleId);
+	
+	int updateSample(int sampleId, String sampleName);
 }

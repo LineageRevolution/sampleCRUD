@@ -39,10 +39,19 @@ public class SampleController {
 	@GetMapping("/sampleDelete")
 	public String smapleDelete(@RequestParam(value="sampleId") int sampleId) {
 		int result = sampleService.removeSample(sampleId);
-		System.out.println("삭제처리결과: " + result + " (성공:1, 실패:0)");
 		return "redirect:/sampleList";
 	}
 	// 5. 수정 폼
-
+	@GetMapping("/modifySample")
+	public String modifySample(@RequestParam(value="sampleId") int sampleId, Model model) {
+		Sample sample = sampleService.getSampleOne(sampleId);
+		model.addAttribute("sample",sample);
+		return "modifySample";
+	}
 	// 6. 수정 액션
+	@PostMapping("/modifySample")
+	public String modifySample(@RequestParam(value="sampleId") int sampleId, @RequestParam(value="sampleName") String sampleName) {
+		int result = sampleService.modifySample(sampleId, sampleName);
+		return "redirect:/sampleList";
+	}
 }
