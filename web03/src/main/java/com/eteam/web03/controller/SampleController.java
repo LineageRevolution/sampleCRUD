@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.eteam.web03.service.SampleService;
+import com.eteam.web03.vo.Sample;
 
 @Controller
 public class SampleController {
@@ -20,7 +21,8 @@ public class SampleController {
 	}
 	// 2. 입력 액션
 	@PostMapping
-	public String addSample(@RequestParam(value="sampleName") String sampleName) {
+	public String addSample(@RequestParam(value="sampleName") Sample sampleName) {
+		int result = sampleService.addSample(sampleName);
 		return "redirect:/sampleList";	//리다이렉트
 	}
 	// 3. 목록
