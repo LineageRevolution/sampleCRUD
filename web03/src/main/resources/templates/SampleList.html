@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>리스트</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td>sampleId</td>
+			<td>sampleName</td>
+			<td>수정</td>
+			<td>삭제</td>
+		</tr>
+		<tr th:each="s : ${list}">
+			<td th:text="${s.sampleId}"></td>
+			<td th:text="${s.sampleName}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -14,16 +14,17 @@ public class SampleService {
 	private SampleMapper sampleMapper;
 
 	public List<Sample> getSampleList() {
-		return null;
+		List<Sample> sampleList = sampleMapper.selectSampleList();
+		return sampleList;
 	}
 
 	public List<Sample> getSampleOne() {
 		return null;
 	}
 
-	public int addSample(Sample sampleName) {
+	public int addSample(String sampleName) {
 		int result = sampleMapper.addSample(sampleName);
-		return 0;
+		return result;
 	}
 
 	public int removeSample(Sample sample) {
